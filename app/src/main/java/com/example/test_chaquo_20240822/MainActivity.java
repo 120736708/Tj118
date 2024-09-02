@@ -26,8 +26,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     public class Obj
@@ -59,8 +57,8 @@ public class MainActivity extends AppCompatActivity {
         }
         Python python_cv = Python.getInstance();
 
+        JSONObject json0 = new JSONObject();
         JSONObject json1 = new JSONObject();
-
         try {
             // 构建startLoc对象
             JSONObject startLoc = new JSONObject();
@@ -101,16 +99,123 @@ public class MainActivity extends AppCompatActivity {
             photoData.put(photoDataItem);
 
             // 将startLoc, towerLoc和photoData添加到json1中
-            json1.put("startLoc", startLoc);
-            json1.put("towerLoc", towerLoc);
-            json1.put("photoData", photoData);
+            json0.put("startLoc", startLoc);
+            json0.put("towerLoc", towerLoc);
+            json0.put("photoData", photoData);
 
             // 打印json1字符串，用于验证
-            Log.d("JSON", json1.toString());
+            Log.d("JSON", json0.toString());
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        try {
+            JSONArray wuliaoData = new JSONArray();
+            // 创建wuliaoData1
+            JSONObject wuliaoData1 = new JSONObject();
+            JSONArray jueyuanziArray1 = new JSONArray();
+            jueyuanziArray1.put(new JSONArray("[5.802, 5.623, -7.639, 1794.0, 1586.5, 1749.5, 1551.5, 0.0]"));
+            jueyuanziArray1.put(new JSONArray("[6.105, 6.459, -7.426, 2059.5, 1478.5, 2023.0, 1478.0, 1.0]"));
+            jueyuanziArray1.put(new JSONArray("[6.58, 7.302, -7.679, 2315.0, 1417.0, 2300.0, 1450.0, 2.0]"));
+            jueyuanziArray1.put(new JSONArray("[6.25, 5.483, -7.44, 1759.0, 1434.5, 1737.0, 1400.0, 3.0]"));
+            jueyuanziArray1.put(new JSONArray("[6.631, 5.341, -7.493, 1728.5, 1354.5, 1725.5, 1312.5, 4.0]"));
+            jueyuanziArray1.put(new JSONArray("[6.681, 6.841, -7.531, 2179.5, 1362.5, 2169.5, 1376.5, 5.0]"));
+            jueyuanziArray1.put(new JSONArray("[7.028, 7.155, -7.455, 2274.5, 1268.5, 2280.0, 1299.0, 6.0]"));
+            jueyuanziArray1.put(new JSONArray("[6.863, 7.194, -6.785, 2302.0, 1172.5, 2300.0, 1200.5, 7.0]"));
+            jueyuanziArray1.put(new JSONArray("[7.122, 6.596, -6.534, 2116.5, 1052.5, 2128.0, 1057.0, 8.0]"));
+            jueyuanziArray1.put(new JSONArray("[7.522, 5.965, -6.832, 1926.5, 1023.0, 1958.5, 1011.0, 9.0]"));
+
+            // 创建"ganta"数组
+            JSONArray gantaArray1 = new JSONArray();
+            gantaArray1.put(new JSONArray("[-6.0224246573049856, -13.14875746704542, 7.126332809740435]"));
+            gantaArray1.put(new JSONArray("[-5.876496795497736, -12.818302494427678, 6.941805698929943]"));
+            gantaArray1.put(new JSONArray("[-5.944225491874083, -12.950622564255994, 7.006397072381911]"));
+
+            // 创建"hengdan"数组
+            JSONArray hengdanArray1 = new JSONArray();
+            hengdanArray1.put(new JSONArray("[6.696, 6.328, -6.767, 2025.5, 1198.0, 2017.5, 1198.5, 0.0]"));
+            hengdanArray1.put(new JSONArray("[6.661, 6.328, -7.649, 2025.5, 1385.0, 2016.5, 1379.5, 1.0]"));
+
+            wuliaoData1.put("jueyuanzi", jueyuanziArray1);
+            wuliaoData1.put("ganta", gantaArray1);
+            wuliaoData1.put("hengdan", hengdanArray1);
+
+            // 创建wuliaoData2
+            JSONObject wuliaoData2 = new JSONObject();
+            JSONArray jueyuanziArray2 = new JSONArray();
+            jueyuanziArray2.put(new JSONArray("[7.59, 6.92, -7.87, 1946.5, 1589, 1904.5, 1417, 0, 1]"));
+            jueyuanziArray2.put(new JSONArray("[7.296, 6.042, -7.68, 2135.5, 1389.5, 2121.5, 1260.5, 1, 1]"));
+            jueyuanziArray2.put(new JSONArray("[7.593, 5.84, -6.94, 2245.5, 1286, 2217, 1161.5, 2, 1]"));
+            jueyuanziArray2.put(new JSONArray("[6.898, 5.18, -7.853, 2287.5, 1249, 2307.5, 1160, 3, 1]"));
+            jueyuanziArray2.put(new JSONArray("[7.137, 7.072, -7.655, 1840, 1473, 1824.5, 1289, 4, 1]"));
+            jueyuanziArray2.put(new JSONArray("[6.748, 6.729, -7.691, 1879.5, 1359, 1889, 1193.5, 5, 1]"));
+            jueyuanziArray2.put(new JSONArray("[7.227, 6.449, -6.676, 2018, 1225.5, 2003.5, 1065, 6, 1]"));
+            jueyuanziArray2.put(new JSONArray("[6.92, 7.062, -6.871, 1798.5, 1272, 1796, 1085, 7, 1]"));
+
+            // 创建"ganta"数组
+            JSONArray gantaArray2 = new JSONArray();
+            gantaArray2.put(new JSONArray("[-5.96336672, -17.61813029, 11.65476357, 1]"));
+            gantaArray2.put(new JSONArray("[-6.30163748, -18.56308967, 12.26145219, 1]"));
+            gantaArray2.put(new JSONArray("[-6.79903058, -20.02250309, 13.2234725, 1]"));
+
+            // 创建"hengdan"数组
+            JSONArray hengdanArray2 = new JSONArray();
+            hengdanArray2.put(new JSONArray("[6.771, 6.164, -6.915, 2028.5, 1147, 2043.5, 1005.5, 0, 1]"));
+            hengdanArray2.put(new JSONArray("[6.781, 6.244, -7.834, 2010, 1337, 2021.5, 1198, 1, 1]"));
+
+            // 创建"bianyaqi"数组
+            JSONArray bianyaqiArray2 = new JSONArray();
+            bianyaqiArray2.put(new JSONArray("[7.1, 6.618, -15.574, 1988.5, 2267, 1972.5, 2181, 0, 1]"));
+
+            // 将所有数组放入一个JSONObject中
+
+            wuliaoData2.put("jueyuanzi", jueyuanziArray2);
+            wuliaoData2.put("ganta", gantaArray2);
+            wuliaoData2.put("hengdan", hengdanArray2);
+            wuliaoData2.put("bianyaqi", bianyaqiArray2);
+
+            wuliaoData.put(wuliaoData1);
+            wuliaoData.put(wuliaoData2);
+
+            // 构建startLoc对象
+            JSONObject startLoc = new JSONObject();
+            startLoc.put("lat", 30.12423525);
+            startLoc.put("lon", 114.142525);
+            startLoc.put("alt", 30.4);
+
+            JSONObject towerLoc = new JSONObject();
+            towerLoc.put("lat", 30.12423525);
+            towerLoc.put("lon", 114.142525);
+            towerLoc.put("alt", 30.4);
+
+            // 构建前向导线方向degree_front
+            JSONObject degree_front = new JSONObject();
+            degree_front.put("roll", 0);
+            degree_front.put("yaw", 161.3);
+            degree_front.put("pitch", -54.4);
+
+            // 构建后向导线方向
+            JSONObject degree_back = new JSONObject();
+            degree_back.put("roll", 0);
+            degree_back.put("yaw", 32.1);
+            degree_back.put("pitch", -54.4);
+
+            json1.put("wuliaodata", wuliaoData);
+            json1.put("startLoc", startLoc);
+            json1.put("towerLoc", towerLoc);
+            json1.put("degree_front", degree_front);
+            json1.put("degree_back", degree_back);
+
+            // 打印JSON对象
+            System.out.println(json1.toString());  // 参数4表示缩进级别
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
 
         Go_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,120 +228,122 @@ public class MainActivity extends AppCompatActivity {
                 drawable = (BitmapDrawable) getDrawable(R.drawable.test0);
                 bitmap = drawable.getBitmap();
 
-                // 该段代码耗时较长，将Bitmap对象压缩成jpg格式
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-                byte[] byteArray0 = stream.toByteArray();
+//                // 该段代码耗时较长，将Bitmap对象压缩成jpg格式
+//                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+//                byte[] byteArray0 = stream.toByteArray();
+//
+//                drawable = (BitmapDrawable) getDrawable(R.drawable.test1);
+//                bitmap = drawable.getBitmap();
+//                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+//                byte[] byteArray1 = stream.toByteArray();
+//
+//                drawable = (BitmapDrawable) getDrawable(R.drawable.test2);
+//                bitmap = drawable.getBitmap();
+//                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+//                byte[] byteArray2 = stream.toByteArray();
 
-                drawable = (BitmapDrawable) getDrawable(R.drawable.test1);
-                bitmap = drawable.getBitmap();
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-                byte[] byteArray1 = stream.toByteArray();
-
-                drawable = (BitmapDrawable) getDrawable(R.drawable.test2);
-                bitmap = drawable.getBitmap();
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-                byte[] byteArray2 = stream.toByteArray();
-
-                // 函数输入
-                double[] loc0 = {30.3067, 114.4250, 38.7490};
-                double[] loc_ganta = {30.3067, 114.4250, 38.7490};
-                double[] loc_mov1 = {30.3067055, 114.4250684, 38.777};
-                double[] loc_ref = {30.3067068, 114.4250727, 38.771};
-                double[] loc_mov2 = {30.3067065, 114.4250782, 38.755};
-                double[] degree_mov1 ={0, -2.3, -54.4};
-                double[] degree_ref = {0, -5.1, -54.4};
-                double[] degree_mov2 = {0, -11, -54.4};
-
-                List<Obj> box_obj_mov1 = new ArrayList<>();
-                Obj obj = new Obj();
-                obj.x = 1773;
-                obj.y = 1546;
-                obj.h = 50;
-                obj.w = 50;
-                obj.label = "jueyuanzi";
-                box_obj_mov1.add(obj);
-                Obj obj1 = new Obj();
-                obj1.x = 1673;
-                obj1.y = 1246;
-                obj1.h = 50;
-                obj1.w = 50;
-                obj1.label = "hengdan";
-                box_obj_mov1.add(obj1);
-                String[][] result0 = new String[box_obj_mov1.size()][5];
-
-                // 填充二维数组
-                for (int i = 0; i < box_obj_mov1.size(); i++) {
-                    Obj obj0 = box_obj_mov1.get(i);
-                    result0[i][0] = String.valueOf(obj0.x);      // x
-                    result0[i][1] = String.valueOf(obj0.y);      // y
-                    result0[i][2] = String.valueOf(obj0.w);      // w
-                    result0[i][3] = String.valueOf(obj0.h);      // h
-                    result0[i][4] = obj0.label;                  // label
-                }
-
-                List<Obj> box_obj_ref = new ArrayList<>();
-                obj.x = 1773;
-                obj.y = 1546;
-                obj.h = 50;
-                obj.w = 50;
-                obj.label = "jueyuanzi";
-                box_obj_ref.add(obj);
-
-                obj.x = 1773;
-                obj.y = 1546;
-                obj.h = 50;
-                obj.w = 50;
-                obj.label = "hengdan";
-                box_obj_ref.add(obj);
-                String[][] result1 = new String[box_obj_ref.size()][5];
-
-                // 填充二维数组
-                for (int i = 0; i < box_obj_ref.size(); i++) {
-                    Obj obj0 = box_obj_ref.get(i);
-                    Log.d("WorkspaceTag", "obj0: " + obj0);
-                    result1[i][0] = String.valueOf(obj0.x);      // x
-                    result1[i][1] = String.valueOf(obj0.y);      // y
-                    result1[i][2] = String.valueOf(obj0.w);      // w
-                    result1[i][3] = String.valueOf(obj0.h);      // h
-                    result1[i][4] = obj.label;                  // label
-                }
-
-
-                List<Obj> box_obj_mov2 = new ArrayList<>();
-                obj.x = 1773;
-                obj.y = 1546;
-                obj.h = 50;
-                obj.w = 50;
-                obj.label = "jueyuanzi";
-                box_obj_mov2.add(obj);
-                obj.x = 1773;
-                obj.y = 1546;
-                obj.h = 50;
-                obj.w = 50;
-                obj.label = "hengdan";
-                box_obj_mov2.add(obj);
-                String[][] result2 = new String[box_obj_mov2.size()][5];
-
-                // 填充二维数组
-                for (int i = 0; i < box_obj_mov2.size(); i++) {
-                    Obj obj0 = box_obj_mov2.get(i);
-                    result2[i][0] = String.valueOf(obj0.x);      // x
-                    result2[i][1] = String.valueOf(obj0.y);      // y
-                    result2[i][2] = String.valueOf(obj0.w);      // w
-                    result2[i][3] = String.valueOf(obj0.h);      // h
-                    result2[i][4] = obj.label;                  // label
-                }
+//                // 函数输入
+//                double[] loc0 = {30.3067, 114.4250, 38.7490};
+//                double[] loc_ganta = {30.3067, 114.4250, 38.7490};
+//                double[] loc_mov1 = {30.3067055, 114.4250684, 38.777};
+//                double[] loc_ref = {30.3067068, 114.4250727, 38.771};
+//                double[] loc_mov2 = {30.3067065, 114.4250782, 38.755};
+//                double[] degree_mov1 ={0, -2.3, -54.4};
+//                double[] degree_ref = {0, -5.1, -54.4};
+//                double[] degree_mov2 = {0, -11, -54.4};
+//
+//                List<Obj> box_obj_mov1 = new ArrayList<>();
+//                Obj obj = new Obj();
+//                obj.x = 1773;
+//                obj.y = 1546;
+//                obj.h = 50;
+//                obj.w = 50;
+//                obj.label = "jueyuanzi";
+//                box_obj_mov1.add(obj);
+//                Obj obj1 = new Obj();
+//                obj1.x = 1673;
+//                obj1.y = 1246;
+//                obj1.h = 50;
+//                obj1.w = 50;
+//                obj1.label = "hengdan";
+//                box_obj_mov1.add(obj1);
+//                String[][] result0 = new String[box_obj_mov1.size()][5];
+//
+//                // 填充二维数组
+//                for (int i = 0; i < box_obj_mov1.size(); i++) {
+//                    Obj obj0 = box_obj_mov1.get(i);
+//                    result0[i][0] = String.valueOf(obj0.x);      // x
+//                    result0[i][1] = String.valueOf(obj0.y);      // y
+//                    result0[i][2] = String.valueOf(obj0.w);      // w
+//                    result0[i][3] = String.valueOf(obj0.h);      // h
+//                    result0[i][4] = obj0.label;                  // label
+//                }
+//
+//                List<Obj> box_obj_ref = new ArrayList<>();
+//                obj.x = 1773;
+//                obj.y = 1546;
+//                obj.h = 50;
+//                obj.w = 50;
+//                obj.label = "jueyuanzi";
+//                box_obj_ref.add(obj);
+//
+//                obj.x = 1773;
+//                obj.y = 1546;
+//                obj.h = 50;
+//                obj.w = 50;
+//                obj.label = "hengdan";
+//                box_obj_ref.add(obj);
+//                String[][] result1 = new String[box_obj_ref.size()][5];
+//
+//                // 填充二维数组
+//                for (int i = 0; i < box_obj_ref.size(); i++) {
+//                    Obj obj0 = box_obj_ref.get(i);
+//                    Log.d("WorkspaceTag", "obj0: " + obj0);
+//                    result1[i][0] = String.valueOf(obj0.x);      // x
+//                    result1[i][1] = String.valueOf(obj0.y);      // y
+//                    result1[i][2] = String.valueOf(obj0.w);      // w
+//                    result1[i][3] = String.valueOf(obj0.h);      // h
+//                    result1[i][4] = obj.label;                  // label
+//                }
+//
+//
+//                List<Obj> box_obj_mov2 = new ArrayList<>();
+//                obj.x = 1773;
+//                obj.y = 1546;
+//                obj.h = 50;
+//                obj.w = 50;
+//                obj.label = "jueyuanzi";
+//                box_obj_mov2.add(obj);
+//                obj.x = 1773;
+//                obj.y = 1546;
+//                obj.h = 50;
+//                obj.w = 50;
+//                obj.label = "hengdan";
+//                box_obj_mov2.add(obj);
+//                String[][] result2 = new String[box_obj_mov2.size()][5];
+//
+//                // 填充二维数组
+//                for (int i = 0; i < box_obj_mov2.size(); i++) {
+//                    Obj obj0 = box_obj_mov2.get(i);
+//                    result2[i][0] = String.valueOf(obj0.x);      // x
+//                    result2[i][1] = String.valueOf(obj0.y);      // y
+//                    result2[i][2] = String.valueOf(obj0.w);      // w
+//                    result2[i][3] = String.valueOf(obj0.h);      // h
+//                    result2[i][4] = obj.label;                  // label
+//                }
 
 
 
 
                 // 调用Python方法计算物料空间点
-                PyObject cvObject = python_cv.getModule("Image2Cor");
+
+                PyObject cvObject = python_cv.getModule("Cor2Result");
 //                PyObject res = cvObject.callAttr("image2Cor", loc0, loc_ganta, loc_mov1, loc_ref, loc_mov2,
 //                        degree_mov1, degree_ref, degree_mov2, byteArray0, byteArray1, byteArray2,
 //                        result0, result1, result2);
-                String jsonString = json1.toString();
-                PyObject res = cvObject.callAttr("image2Cor", jsonString);
+                String jsonString = json0.toString();
+                String jsonString1 = json1.toString();
+                PyObject res = cvObject.callAttr("Cor2Result", jsonString1);
                 double[] degree_front = {0, 161.3, -54.4};
                 double[] degree_back = {0, 32.1, -54.4};
                 // 调用Python方法计算空间测距跟数量统计

@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ET
 import math
 import json
 
-def image2Cor(json1):
+def Image2Cor(json1):
 # def image2Cor(loc0, loc_ganta, loc_mov1, loc_ref, loc_mov2,
 #               degree_mov1, degree_ref, degree_mov2, byteArray0, byteArray1, byteArray2,
 #               box_obj_mov1, box_obj_ref, box_obj_mov2):
